@@ -1,0 +1,21 @@
+var canPlaceFlowers = function(flowerbed, n) {
+    const len = flowerbed.length;
+    flowerbed.push(0);
+    flowerbed.unshift(0);
+        
+    for (let i = 1; i < flowerbed.length - 1; i++) {
+        // Check if the current plot and its neighbors are empty
+        if (flowerbed[i] === 0 && flowerbed[i - 1] === 0 && flowerbed[i + 1] === 0) {
+            flowerbed[i] = 1; // Plant a flower
+            n -= 1; // Decrement the count of flowers to be planted
+        }
+        
+        // If all required flowers have been planted, return true early
+        if (n === 0) {
+            return true;
+        }
+    }
+    
+    // If unable to plant all flowers, return false
+    return n <= 0;
+};
