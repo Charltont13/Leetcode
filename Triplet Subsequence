@@ -1,22 +1,30 @@
 var increasingTriplet = function(nums) {
-    let m = 0;
-    for (let i = 0; i < nums.length - 1; i++){
-        if(nums[i + 1] > nums[i]){
-            m += 1;
-        }
-        else if(nums[i + 1] === nums[i]){
-            m += 0;
-        }
-        else{
-            m = 0;
-        }
+    let k = 0;
+    let j = 1;
+    let x;
+    let y;
+    let z;
 
-         
-    }
-    if(m >= 2 ){
-            return true;
+    for (let i = 0; i < nums.length - 1; i++){
+        if(nums[i]  <= nums[k]){
+            x = nums[i]
+            y = nums[k];
+            z = nums[j];
         }
-        else{
-            return false;
+        else if(nums[i] > nums[k] && nums[i] < nums[j]){
+            x = nums[k];
+            y = nums[i];
+            z = nums[j];
         }
+        else if(nums[i] >= nums[j]){
+            x = nums[k];
+            y = nums[j];
+            z = nums[i];
+
+        }
+        k += 1;
+        j += 1;
+        
+
+} return(x < y && y < z);
 };
