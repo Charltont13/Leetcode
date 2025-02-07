@@ -1,0 +1,29 @@
+var compress = function(chars) {
+    let x = 1;
+    let s = "";
+    for (let i = 0; i < chars.length; i++) {
+        if (i > 0 && chars[i] === chars[i - 1]) {
+            x++;
+        } else {
+            if (i > 0) {
+                s += chars[i - 1];
+                if (x > 1) {
+                    s += x.toString();
+                }
+            }
+            x = 1;
+        }
+    }
+
+    s += chars[chars.length - 1];
+    if (x > 1) {
+        s += x.toString();
+    }
+
+    chars.length = 0;  
+    for (let c of s) {
+        chars.push(c);
+    }
+    return chars.length;
+
+};
