@@ -1,0 +1,11 @@
+var findTargetNumber = function(limit) {
+    let left = 0, right = limit - 1;
+    while (left <= right) {
+        let middle = Math.floor((left + right) / 2);
+        let result = guess(middle);
+        if (result === 0) return middle;
+        else if (result === 1) left = middle + 1;
+        else right = middle - 1;
+    }
+    return left;    
+};
