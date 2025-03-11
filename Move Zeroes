@@ -1,11 +1,10 @@
 function shiftZeros(arr) {
-    let insertPos = 0; 
+    let insertPos = 0;
 
-    for (let idx = 0; idx < arr.length; idx++) {
-        if (arr[idx] !== 0) {
-          
+    arr.forEach((num, idx) => {
+        if (num !== 0) {
             [arr[insertPos], arr[idx]] = [arr[idx], arr[insertPos]];
             insertPos++;
         }
-    }
+    });
 }
