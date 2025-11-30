@@ -6,7 +6,6 @@ var mergeAlternately = function(word1, word2) {
         while(twoLen !== 0 && oneLen !== 0){
             newstr += word1[ind];
             newstr += word2[ind];
-        
 
             ind += 1;
             twoLen -= 1;
